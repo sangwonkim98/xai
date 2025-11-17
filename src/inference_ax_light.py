@@ -90,7 +90,7 @@ def load_model(model_name: str = "skt/A.X-4.0-Light", device: str = None):
     )
 
     if device is None:
-        device = "cuda" if torch.cuda.is_available() else "cpu"
+        device = "cpu"
     model.to(device)
     model.eval()
 
