@@ -146,7 +146,8 @@ def get_prob_1(
         dim=0
     )  # [2]
 
-    probs = torch.softmax(selected_logits, dim=0)  # [2]
+    # float32로 변환하여 softmax 계산 시 수치 안정성 확보
+    probs = torch.softmax(selected_logits.float(), dim=0)  # [2]
     prob_0 = probs[0].item()
     prob_1 = probs[1].item()
 
